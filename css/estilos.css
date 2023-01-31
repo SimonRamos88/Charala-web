@@ -1,0 +1,490 @@
+@charset "UTF-8";
+/*Se llama las fuentes a utilizar*/
+@font-face {
+    font-family: Ebrima;
+    src: url('../fonts/ebrima.ttf');
+}
+@font-face {
+    font-family: Ebrima-Bold;
+    src: url('../fonts/ebrima-bold.ttf');
+}
+body{      /* Se define el color de fondo */                   
+	background-color:#4C0027;                    	
+}
+#btn{
+    display: none; /*Oculta el checkbox*/
+}
+
+header label {     /* coloca el checkbox en un lugar y tamaño exactos*/
+    display: none;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+} 
+header label:hover {
+    cursor: pointer;    /* cambia el cursor sobre el checkbox para indicar la interacción*/
+}
+/*Se pone un div que esta detras del menú de nevgacion, esto con fines meramente estéticos y marcar una diferencia entre el menú y el resto del body*/
+.encabezado{
+    background-color: #000000;
+    /*--#9AA7B2--*/
+	height: 220px;
+    margin-bottom: 10px;
+}
+
+nav ul{
+    list-style: none; /*Dispone los botones horizontalmente*/
+    display: flex;
+}
+
+/* este estilo de nav hace que cuando se hace pequeña la pantalla los botones no se amontonen*/
+nav ul li{    
+    flex-wrap: nowrap;
+    margin: auto; 
+}
+
+/*De esta linea a la 92 se crean los estilos para cada botón del menú de navegación, así como también se les asigna un hover el cual les cambia la apriencia*/
+.btn-local{
+    background-image: url(../images/btn-localzcn.png);
+    padding:100px;  /* arriba es necesario el padding para que se vea por completo la imagen del botón */ 
+    background-repeat: no-repeat;
+}
+.btn-local:hover{
+    background-image: url(../images/btn-localzcnblanco.png);
+}
+
+.btnMenuper{
+    background-image: url(../images/btn-personajes.png);
+    padding:100px;  /* arriba es necesario el padding para que se vea por completo la imagen del botón */
+
+    background-repeat: no-repeat;
+}
+.btnMenuper:hover{
+    background-image: url(../images/btn-personajesblanco.png);
+}
+.btn-menuact{
+    background-image: url(../images/btn-actividades.png);
+    padding:100px;/* arriba es necesario el padding para que se vea por completo la imagen del botón */
+  
+    background-repeat: no-repeat;
+}
+.btn-menuact:hover{
+    background-image: url(../images/btn-actividadesblanco.png);
+}
+.btn-menuhis{
+    background-image: url(../images/btn-historia.png);
+    padding:100px; /* arriba es necesario el padding para que se vea por completo la imagen del botón */
+
+    background-repeat: no-repeat;
+}
+.btn-menuhis:hover{
+    background-image: url(../images/btn-historiablanco.png);
+}
+.btn-menucre{
+    background-image: url(../images/btn-creditos.png);
+    padding:100px;  /* arriba es necesario el padding para que se vea por completo la imagen del botón */   
+    background-repeat: no-repeat;
+}
+ .btn-menucre:hover{
+    background-image: url(../images/btn-creditosblanco.png);
+ }
+ /*Estilo para los divs que encierran la info y se vean como tarjetas*/
+.card{
+    padding-bottom: 6%;
+    padding-left: 10px;
+    padding-right: 10px;
+    position: relative;
+    
+    box-shadow: 5px 5px 18px 9px rgba(186,186,186,0.39);
+    border-radius: 15px;
+    width: 90%;
+    margin: auto;
+}
+
+/* Clase para el estilo del div donde se encierra el mapa*/
+.divmap{
+    margin-top: 2.5%; /*Para separarlo de los otros divs*/
+    margin-bottom: 2,5%;
+    margin-right: auto; /*Para centrarlo a los lados*/
+    margin-left: auto;
+    position: relative; /*Lo hacemos relative para que los botones se posicionen con respecto a este div*/
+    
+    width: 85%;
+    border: #000000 50px solid; /*Para darle ese borde negro de los costados*/
+    box-shadow: 5px 5px 18px 9px rgba(186,186,186,0.39); /*La sombra del div*/
+    border-radius: 15px;
+    
+    display: flex; /*Estas dos lineas son para centrar el mapa*/
+    justify-content: center; /*lo que hace es centrar el contenido del div*/
+
+    
+ }
+
+ /*Estilos de las dimensiones del mapa*/
+.map{
+    height: 50%;
+    width: 45%;
+}
+
+/*Estilos para los botones del mapa*/
+.icon {
+    width: 60px; /*Dimensiones del boton*/
+    height: 60px;
+    
+    color: rgb(7, 7, 7);
+    border-radius: 50%;
+    outline: 2px solid rgb(0, 0, 0); /*Dibuja un contorno*/
+    
+    display: flex; /*Dispone del boton como en linea, ayudará a mantener el texto del boton dentro de este*/
+    text-decoration: none;
+
+    transition-property: /*Propiedades para la animacion*/
+        outline-offset, outline-color,
+        background-color;
+    transition-duration: .25s;
+}
+.icon h3{
+    display: none; /*Hace que el texto del boton se oculte mientras no este sobre él*/
+}
+
+.icon:hover {
+    cursor: pointer;
+    outline-offset: 4px; /*Establece el limite entre un contorno dibujado alrededor del elemento y el borde de este*/
+}
+.icon:hover h3{
+    display: flex; /*Muestra el texto del boton*/
+    margin: auto; /*Centra el texto*/
+    color: #000000;
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/*Animacion de los elementos*/
+
+.icon--virolin{
+    position: absolute;
+    z-index: 4;
+    left: 38%; 
+    top: 48%; 
+}
+.icon--virolin:hover {
+    /*Le pone un gradiente al botón cuando se pone sobre él*/
+    background-image: 
+        radial-gradient(circle at 30% 107%,
+        #fdf497 0%, #fdf497 5%,
+        #F68989 45%, #d6249f 60%,
+        #4C0027 90%);
+    outline-color: #a02d76;
+}
+
+.icon--tinaga{
+    position: absolute;
+    z-index: 4;
+    left: 42%; 
+    top: 22%; 
+}
+.icon--tinaga:hover {
+    /*Le pone un gradiente al botón cuando se pone sobre él*/
+    background-image: 
+        radial-gradient(circle at 30% 107%,
+        #fdf497 0%, #F39189 5%,
+        #BB8082 45%, #6E7582 60%,
+        #046582 90%);
+    outline-color: #046582;
+}
+
+.icon--tigre{
+    position: absolute;
+    z-index: 4;
+    left: 42%; 
+    top: 75%; 
+}
+.icon--tigre:hover {
+    /*Le pone un gradiente al botón cuando se pone sobre él*/
+    background-image: 
+        radial-gradient(circle at 30% 107%,
+        #fdf497 0%, #F6E7D8 5%,
+        #E7AB79 45%, #B25068 60%,
+        #774360 90%);
+    outline-color: #E7AB79;
+}
+
+/* Tarjetas de informacion para el mapa interactivo*/
+.lugar {
+    height: 35%;
+    width: 30%;
+    overflow: hidden; /*Hace que cuando la imagen es más grande que el tamaño de la tarjeta, el sobrante simplemente se "corte", no aparezca*/
+    position: absolute;
+    left: 0%;
+    top:0%;
+    cursor: pointer;
+    border-radius: 20px;
+
+    display: none; /*Lo escondemos mientras no sepresione el boton*/
+}
+
+.lugar img {
+    height: 100%;
+    width: 100%;
+}
+
+.details {
+    position: absolute; /*A la posicion, la pone absoluta pq va a aparecer sobre el hover de lugar*/
+    left: 0%; 
+    top: 0%;
+    width: 100%;
+    height: 0%; /*Para esconderlo mientras no hay hover*/
+    opacity: 0; /*Tambien para esconderlo*/
+
+    background: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;   
+    transition: 0.5s ease; /*La transicion para cuando aparezca despues del hover*/
+}
+
+
+/*Estilo para los "titulos" dentro de las tarjetas de info de los lugares*/
+.details a h3 {
+    font-family: Ebrima-Bold;
+    font-size: 1.3rem;
+    color: white;
+    text-decoration: none;
+    text-align: center;
+}
+
+/*Estilo para los parrafos dentro de las tarjetas de info de los lugares*/
+.details p {
+    font-family: Ebrima;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+/*Estilo que va a aparecer cuando se le hover a lugar*/
+.lugar:hover .details {
+    opacity: 1; /*Dejamos de "esconderlo"*/
+    height: 100%;
+}
+
+/*Se crea el estilo para los títulos, tiene una imagen destinada para esto*/
+h1{
+    font-family: Ebrima-Bold; /*Se pone la fuente*/
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    font-size: 30px;
+    color: #000000;
+    background-image: url(../images/titulos2.png); 
+    background-position: center; /*Se coloca al centro la imagen del titulo*/
+    background-repeat: no-repeat;
+    padding-bottom:50px ;    /*Es necesario poner este padding para que sea odo el botón completo*/
+ }
+
+ /*Se crea un estilo para los subtitulos, estos tienen otra imagen en específico. Por defecto estos subtitulos se posicionan a la derecha*/
+h2{
+    font-family: Ebrima-Bold;
+    font-style: normal;
+    font-weight: bold;
+    color: #ffffff;
+    background-image: url(../images/subtitulos2.png);
+    background-repeat: no-repeat;
+    padding-bottom:30px ;  /*Es necesario el padding para que se vea la imagen por completo*/
+}
+/*Este estilo es parecido al anterior solo que pone los subtitulos a la izquierda*/
+.h2izquierda{
+    font-family: Ebrima-Bold;
+    font-style: normal;
+    font-weight: bold;
+    text-align: right;
+    color: #ffffff;
+    background-image: url(../images/subtitulos2.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    padding-bottom:100px ;  
+    margin-bottom: -50px;
+    padding-right: 65px;
+}
+/*Este estilo es para la parte de creditos y es para poner una especie de enfasis al ennumerar las referencias usadas*/
+h3{
+    font-family: Ebrima-Bold;
+    font-style: normal;
+    font-weight: bold;
+    color: #C65D7B;
+}
+li{
+    color: #C65D7B;
+}
+/*Estilo usado para una disposicion de texto en columna, este estilo es para la columna izquierda*/
+.columnizq{
+    box-shadow:2px 2px 4px 4px black;
+    border-radius: 10px;
+    background-color: #4C0027;
+    margin-top: 5px;
+    padding: 10px; 
+    float: left; 
+    width: 45%;
+}
+/*Al igual que el estilo anterior es para tener texto en columnas, solo que esta es la columna derecha*/
+.columnder{
+    box-shadow:2px 2px 4px 4px black;
+    border-radius: 10px;
+    background-color: #4C0027;
+    margin-top: 5px;
+    padding: 10px; 
+    float: right; 
+    width: 45%;
+}
+/*Estilos para los parrafos*/
+p{
+    font-family: Ebrima;
+    font-style: normal;
+    color: #ffffff;
+    text-align: justify; /*Se justifica el contenido de los parrafos*/
+}
+
+/*Este estilo es para tener imagenes centradas. Es usado en la seccion de personajes*/
+.imagen{
+    display: block;
+    margin: auto;
+}
+.imagen2{
+    display: block;
+    margin: auto;
+    padding-top: 1%;
+    width: 60%;
+    height: 60%;
+}
+
+
+
+/* para pantallas menores a 860 px y mayores a 500px*/
+@media only screen and (max-width: 860px){
+   
+    .encabezado{
+        background: linear-gradient(to bottom,#C65D7B, #980F5A);
+        max-height: 100px;
+    }
+    .imagen{
+        width: 80%;
+    }
+    .btnMenuper{
+        background-image: url(../images/pers-resp.png);
+        padding-right: 50px;
+    } 
+    .btnMenuper:hover{
+        background-image: url(../images/pers-resp-white.png);
+    }
+    .btn-local{
+        background-image: url(../images/lzcn-resp.png);
+        padding-right: 50px;
+    }
+    .btn-local:hover{
+        background-image: url(../images/lzcn-resp-white.png);
+    }
+    .btn-menuact{
+        background-image: url(../images/act-resp.png);
+        padding-right: 50px;
+    }
+    .btn-menuact:hover{
+        background-image: url(../images/act-resp-white.png);
+    }
+    .btn-menucre{
+        background-image: url(../images/crd-resp.png);
+        padding-right: 50px;
+    }
+    .btn-menucre:hover{
+        background-image: url(../images/crd-resp-white.png);
+    }
+    .btn-menuhis{
+        background-image: url(../images/his-resp.png);
+        padding-right: 50px;
+    }
+    .btn-menuhis:hover{
+        background-image: url(../images/his-resp-white.png);
+    }
+
+    /*aumenta el interlineado de los renglones de los parrafos*/
+    p{
+        font-size: 1.2rem;
+        line-height: 50px;        
+    }
+    /*aumentar el tamaño de las imagenes incrutadas en los parrafos*/
+    p img{
+        width: 45%;
+        height: 30%;
+    }
+
+        /*Estilo para los "titulos" dentro de las tarjetas de info de los lugares*/
+    .details a h3 {
+        font-size: 0.7rem;
+    }
+
+    /*Estilo para los parrafos dentro de las tarjetas de info de los lugares*/
+    .details p {
+        font-size: 0.6rem;
+        line-height: normal;
+    }
+}
+/* para pantallas menores a 500px*/
+@media only screen and (max-width: 500px){
+    .encabezado{
+        background: rgba(255, 255, 255, 0);
+    }
+    header label{
+        display: block; /*Muestra el icono del menu desplegable*/
+    }
+    nav{
+        z-index: 10;
+        position: fixed;
+        background: rgba(198,93,123,0.7);
+        width: 45%;
+        transition: all 2s;
+        margin-left: -20%; /* se oculta porque se coloca por fuera de la ventana*/
+        /*Se oculta parcialmente ya que la subclase checked no funciona*/
+      
+    }
+    /*Pone los botones del menu verticalmente*/
+    nav ul {
+        display: block ;
+    }
+    nav ul li{    
+        flex-wrap: wrap;
+    }
+    /*por alguna razón la subclase checked no funciona y no corre de nuevo el menú*/
+   #btn:checked ~ nav {
+        margin: 1px;
+    }  
+   
+    .btnMenuper{
+        background-image: url(../images/pers-resp.png);
+        padding-bottom: 0px;
+    } 
+    .btn-local{
+        background-image: url(../images/lzcn-resp.png);
+        padding-bottom: 0px;
+    }
+    .btn-menuact{
+        background-image: url(../images/act-resp.png);
+        padding-bottom: 0px;
+    }
+    .btn-menucre{
+        background-image: url(../images/crd-resp.png);
+        padding-bottom: 0px;
+    }
+
+    .btn-menuhis{
+        background-image: url(../images/his-resp.png);
+        padding-bottom: 0px;
+    }
+    .details a h3 {
+        font-size: 1.1rem;
+    }
+
+    /*Estilo para los parrafos dentro de las tarjetas de info de los lugares*/
+    .details p {
+        display: none;
+    }
+   
+}

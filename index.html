@@ -1,0 +1,152 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta lang="es">
+    <title>Introducción</title>
+    <link href="css/estilos.css" rel="stylesheet" type="text/css">
+    <script src="scripts/script.js"> </script>
+</head>
+
+<body>
+    <!--ponemos el checkbox en un header para que no estorbe y ocupe espacio en los menus no despegables-->
+    <header>
+        <input type="checkbox" id="btn">
+        <label for="btn"><img src="images/menu.png" width="30px"></label>
+    </header>
+    <div class="encabezado">
+        <nav> <!-- Creación del menú de navegación-->
+            <ul>
+                <li> <a href="html/personajes.html" target="_self" > 
+                        <img class="btnMenuper"/>
+                    </a> 
+                </li>
+                <li>
+                    <a href="html/actividades.html" target="_self">
+                        <img  class = "btn-menuact"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="html/historia.html" target="_self" >
+                        <img class="btn-menuhis"/>
+                    </a>
+                </li>
+                <li>
+                    <a href="html/creditos.html" target="_self" >
+                        <img class = "btn-menucre"/>
+                    </a>
+                </li>
+            </ul>
+        <nav>
+    </div>
+    
+    <!-- Se pone la etiqueta <br> y el &nbsp; en este y en todos los títulos y subtítulos para que el texto quede bien centrado en la imagen -->
+
+    <div class="card">
+        <h1> <br>CHARALÁ SANTANDER&nbsp;&nbsp; </h1>
+        <p>
+            <img src="images/charala.jpg" style= "float: left" hspace = "15"/> <!-- Se pone el atributo float para que el la imagen quede a la izquierda del texto, y el atributo hspace para que el espacio entre la imagen y el texto sea de 15-->
+            Charalá es un municipio de Colombia ubicado en el departamento de Santander. Cuenta con una extensión de 411.000 km^2. Tiene una altitud de 1.259 m sobre el nivel del mar. Limita al norte y noroeste con el municipio de Ocamonte, al sur con Oiba y al occidente con Confines. La distancia entre Charalá y Bogotá es de 213 km. 
+            <br>
+            <!--En las lineas siguientes se ponene algunas etiquetas que poseen enlaces a partes especificas de la pagina-->
+            Es llamada Cuna de la Libertad de América por sus aportes en la revolución de los Comuneros; además es cuna de próceres como <a href="personajes.html#galan">José Antonio Galán</a> y <a href="personajes.html#acevedo">José Acevedo Gómez</a>. Aquí también se llevó a cabo la batalla del Pienta el 4 de agosto de 1819, la cual fue crucial para la indepencia de Colombia. Recibió su nombre en honor al cacique Chalala.
+            <br>
+            La cabecera municipal de Charalá dista 135 kilómetros de Bucaramanga, la capital del departamento. Territorio ondulado y fértil es avenado por los ríos Táquiza, Pienta, Cañaverales, Riachuelito y Virolín. Registra una temperatura media anual de 21 grados Celsius. En este municipio se encuentra parte del santuario de fauna y flora Guanentá Alto Río Fonce.
+            <br>
+            Charalá cuenta con varios lugares de interés: el <a href="#virolin">parque natural de Virolín</a>,la <a href="#cueva">cueva del Tigre</a>, la cascada en forma de cáliz de la <a href="#quebrada"> Quebrada Tinagá </a>, la iglesia de Nuestra Señora de Monguí, la Casa de la Cultura y el Museo Arqueológico. El parque principal donde se encuentra el monumento de José Antonio Galán y el gran Samán de Arabia, árbol sembrado para conmemorar el centenario de la Independencia de Colombia, el 20 de julio de 1910.
+       
+        </p>
+    </div> 
+
+    <h1><br>MAPA CHARALÁ </h1>
+
+    <div class="divmap"> <!-- Se cre al div donde esta contenido el mapa-->
+        <a name="mapaint"></a>
+        <img class="map" src="images/mapa.png" alt="mapa charalá" > <!--Imagen dek mapa-->
+        
+        <!--Primer boton, el de virolin-->
+        <a class="icon icon--virolin" onclick="llamarTarjeta1()">
+            <h3> VIROLIN </h3>
+        </a>
+
+        <!--Segundo boton, el de tinaga-->
+        <a class="icon icon--tinaga" onclick="llamarTarjeta2()">
+            <h3> QUEBRADA TINAGÁ </h3>
+        </a>
+
+        <!--Segundo boton, el de tigre-->
+        <a class="icon icon--tigre" onclick="llamarTarjeta3()">
+            <h3> CUEVA TIGRE </h3>
+        </a>
+
+        <!--Tarjeta de virol q se muestra al presionar el boton-->
+        <div id="virol" class="lugar"> 
+            <img src="images/parque virolin.jpeg" alt="virolin">
+            <div class="details"> <!--Div con el estilo que se mesutra al hacer hover sobre la tarjeta-->
+                <a href="#virolin"> <h3> PARQUE VIROLIN</h3></a>
+                <p> en medio de los frailejones, nacen cuatro importantes ríos que atraviesan la geografía de Santander: Fonce, Pienta, Guillermo y Virolín, que reciben a su vez las aguas de cientos de quebradas que son fundamentales para la vida </p>
+            </div> 
+        </div>
+
+        <!--Tarjeta de tinaga q se muestra al presionar el boton-->
+        <div id="tinaga" class="lugar"> 
+            <img src="images/quebrada tinaga.jpeg" alt="virolin">
+            <div class="details"> <!--Div con el estilo que se mesutra al hacer hover sobre la tarjeta-->
+                <a href="#quebrada"> <h3> QUEBRADA TINAGA</h3> </a>
+                <p> Es un salto de agua descendiente de aproximadamente 60 m de altura, alli se realiza torrentismo. La historia cuenta que en esta vereda existia uan bruja, la cual se robaba los niños del pueblo que luego aparecerian en la cascada. </p>
+            </div> 
+           
+        </div>
+
+        <!--Tarjeta de tigre q se muestra al presionar el boton-->
+        <div id="tigre" class="lugar"> 
+            <img src="images/cueva tigre.jpeg" alt="virolin">
+            <div class="details"> <!--Div con el estilo que se mesutra al hacer hover sobre la tarjeta-->   
+                <a href="#cueva"> <h3> CUEVA DEL TIGRE</h3> </a>
+                <p>  En   esta   cueva   se   pueden   apreciar estalactitas, estalagmitas, estalagnatos, cortinas  y  otras    formaciones  rocosas, pozos  de  aguas  cristalinas,  lodazales,  partes     estrechas     que     obligan     a arrastrarse  y  partes  tan  amplias  que simulan las cúpulas de las catedrales. </p>
+            </div>   
+        </div>
+          
+
+    </div>
+
+    <div class="card">
+        <h1> <br>LUGARES DE INTERÉS</h1>
+        <h2> <br> &nbsp;&nbsp;PARQUE VIROLIN</h2>
+        <p>
+            <img src="images/parque virolin.jpeg" style= "float: right" hspace="15" />
+            <!-- Se pone el atributo float para que el la imagen quede a la derecha del texto, y el atributo hspace para que el espacio entre la imagen y el texto sea de 15-->
+            <!--Se pone un identificador para posteriormente hacer un enlace a esta parte de la pagina-->
+            <a name="virolin"></a>
+            El lugar, situado a más de tres mil metros de altura sobre el nivel del mar, es punto clave de equilibrio natural. Allí, en medio de los frailejones, nacen cuatro importantes ríos que atraviesan la geografía de Santander: Fonce, Pienta, Guillermo y Virolín, que reciben a su vez las aguas de cientos de quebradas que son fundamentales para la vida de parte de los habitantes del departamento.
+
+            El sector está dominado por la cuchilla de la Rusia, desde donde se divisa a Charalá, Encino y Gámbita (en Santander) y Duitama y Sogamoso (en Boyacá).
+
+            Gracias a su quebrada geografía, se ha mantenido casi virgen el bosque de robledales situado en el corazón del parque, sobre unas 840 hectáreas. De estos bosques autosubsistentes también dependen unas 19 especies de mamíferos, entre los cuales se destaca el oso de anteojos, además de tigrillos, tapires y especies menores de vertebrados; 30 especies de aves debidamente clasificadas, entre las cuales sobresale la perdiz, Odontophorus Strophium, especie que desapareció en México en 1915, y seis familias de reptiles y anfibios.
+        </p>
+
+        <h2> <br> &nbsp;&nbsp;QUEBRADA TINAGÁ </h2>
+        <p>
+            <img src="images/quebrada tinaga.jpeg" style= "float: left" hspace="15" />
+            <!--Se pone un identificador para posteriormente hacer un enlace a esta parte de la pagina-->
+            <a name="quebrada"></a>
+            Es un salto de agua descendiente de aproximadamente 60 m de altura, alli se realiza torrentismo. La historia cuenta que en esta vereda existia uan bruja, la cual se robaba los niños del pueblo que luego aparecerian en la cascada. Un indio que vivia en las cavernas salio en su busqueda hasta que la mato, pero de el indio no se supo nada mas.
+            <br>
+            Así mismo cascada tiene forma de cáliz, por lo que popuplarmente es conocida de esta forma. Es uno de los lugares turísticos de charalá
+            <br><br><br><br><br><br><br>
+            
+        </p>
+
+        <h2> <br> &nbsp;&nbsp;CUEVA DEL TIGRE </h2>
+        <p>
+            <img src="images/cueva tigre.jpeg" style= "float: right" hspace="15" />
+            <a name="cueva"></a>
+            En   esta   cueva   se   pueden   apreciar estalactitas, estalagmitas, estalagnatos, cortinas  y  otras    formaciones  rocosas, pozos  de  aguas  cristalinas,  lodazales,  partes     estrechas     que     obligan     a arrastrarse  y  partes  tan  amplias  que simulan las cúpulas de las catedrales. 
+            <br>
+            Esta cueva hace parte de uno de los sitios turísticos de Charalá. Es ampliamente viistado en los recorridos ecológicos de la zona. Ya que, al igual que la mayor parte de Santander. CHaralá cuenta con imponnetes vistas y con hermosa biodiversidad, lo que hace la zona de gran atractivo turístico 
+        </p>
+    </div>
+    
+</body>
+
+</html>
